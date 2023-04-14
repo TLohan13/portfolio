@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.header {
+    background-color: #000000;
+    padding: 30px;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 60px;
+    color: #009e66;
+    margin: 1.5 0px;
+}
+
+
+
+.left-column {
+    float: left;
+    width: 70%;
+    margin-top: 40px;
+}
+
+.right-column {
+    width: 27%;
+    float: right;
+    padding-left: 30px;
+    align-items: right;
+    flex-direction: column;
+    position: fixed;
+    right: 20px;
+    bottom: 107px;
+}
+
+.card {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #000000;
+}
+
+.card h2 {
+    color: #009e66;
+}
+
+.card p {
+    color: white;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card img {
+    width: 100%;
+}
+
+.right-column .card img {
+    margin-bottom: 10px;
+}
+
+.left-column h2 {
+    color: #009e66;
+}
+
+.left-column a {
+    text-decoration: none;
+}
+
+.left-column img {
+    width: 100%;
+    height: 520px;
+}
+
+
+
+/* Post Css */
+
+.postBx {
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+}
+
+.postBx .postTitle {
+    margin: 15px;
+}
+
+.postBx .postContent {
+    margin-top: 30px;
+    text-align: left;
+    word-break: break-word;
+}
+
+
+
+/* back button */
+
+.btn-main {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+
+.blog-btn-1 {
+    margin: 25px;
+    background-color: #009e66;
+    width: 30%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.blog-btn-1 a {
+    color: black;
+    text-decoration: none;
+}
