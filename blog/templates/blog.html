@@ -1,0 +1,55 @@
+{% extends 'base2.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom's Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <div class="row">
+        {% for blog in blog_posts %}
+        <div class="left-column">
+            <a href="{% url 'blog:blog_post' blog.id %}">
+                <h2>{{ blog.blog_title }}</h2>
+                <h5>{{ blog.blog_date }}</h5>
+            <img src="{{ blog.blog_image.url }}">
+            </a>
+        </div>
+        {% endfor %} 
+        <div class="right-column">
+            <div class="card">
+                <a href="{% url 'portfolio_app' %}">
+                    <h2>Tom's Profile</h2>
+                    <p>Click Here to check out Tom's Profile!</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://www.linkedin.com/in/thomaslohan/">
+                    <h2>LinkedIn</h2>
+                    <p>Click here to view Thomas's LinkedIn Profile</p>
+                </a> 
+            </div>
+            <div class="card">
+                <a href="https://github.com/TLohan13">
+                    <h2>Github</h2>
+                    <p>Click here to view Thomas's Github Profile</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+
+
+

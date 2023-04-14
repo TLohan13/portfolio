@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/portfolio_app.css' %}">
+</head>
+<body>
+    <section class="banner" id="home">
+        <div class="textBx">
+            <h2>Hello, I'm <br><span>Thomas Lohan</span></h2>
+            <h3>I'm a Sales Representative</h3>
+            <a href="#about" class="btn">About Me</a>
+        </div>
+    </section>
+
+    <!-- About Me Section: we'll need to make certain divs editable, and others will stay static-->
+
+    <section class="about" id="about">
+        <div class="heading">
+            <p>Get to know me</p>
+            <h2>About Me</h2>
+        </div>
+
+        <div class="content">
+
+            {% for about in all_about %}
+            <div class="w50">
+                <img src="{{ about.about_images.url }}" alt="" class="proPic"> 
+            </div>
+            {% endfor %}
+
+            
+            <div class="contentBx w50">
+
+                {% for about in all_about %}
+                <h2>{{ about.about_intro }}</h2>
+                {% endfor %}
+
+                {% for about in all_about %}
+                <p>{{ about.about_p_one }}</p><br>
+                {% endfor %}
+
+                {% for about in all_about %}
+                <p>
+                    {{ about.about_p_two }}
+                </p>
+                {% endfor %}
+
+                
+                <div class="heading bottom">
+                    {% for about in all_about %}
+                    <a href="{{ about.about_resume_pdf.url }}" download="{{about.about_resume_pdf.url}}" class="btn round">Download CV</a>
+                    {% endfor %}
+                    
+                    {% for about in all_about %}
+                    <div class="bt">
+                        <b>Name:</b> {{ about.about_name }}<br>
+                    </div>
+                    {% endfor %}
+
+                    {% for about in all_about %}
+                    <div class="bt">
+                        <b> Current Location:</b> {{ about.about_location }}<br>
+                        <b>Status:</b> {{ about.about_loc_status }}
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Me Section Ends Here-->
+
+    <!--This section I'll explore using the admin panel to edit -->
+
+    <section class="experience" id="experience">
+        <div class="heading white">
+            <h2>My Experience</h2>
+            <p>My work history experiences</p>
+        </div>
+        <div class="content">
+
+            {% for obj in all_exp %}
+            <div class="experienceBx">
+                <h1 class="fa">{{ obj.title }}</h1>
+                <p>{{ obj.description }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+
+    <!--END -->
+
+    <!--Start of Project Sectio where I'll add the ability to upload image.-->
+
+    <section class="project" id="project">
+        <div class="heading">
+            <h2>Publications and Projects</h2>
+            <p>This section showcases some of my <b>News Articles</b>, and <b>Projects</b>.</p>
+        </div>
+
+
+        <div class="content">
+            {% for proj in all_proj %}
+            <div class="projectBx">
+                <a href="{{ proj.url }}" target="_blank">
+                    <img src="{{ proj.images.url }}" alt="">
+                    <p>{{ proj.description }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!--END -->
+
+
+    <!--  This section starts the E#ducation Section -->
+
+    {% comment %} <section class="education" id="education">
+        <div class="heading">
+            <h2>Education</h2>
+            <p>Degrees and Certifcations</p>
+        </div>
+
+        <div class="content">
+            {% for edu in all_edu %}
+            <div class="educationBx">
+                <a href="{{ edu.url }}" target="_blank">
+                    <img src="{{ edu.edu_images.url }}" alt="">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+       
+    </section>  {% endcomment %}
+
+    <!--  This section ends the E#ducation Section -->
+
+    <section class="contact" id="contact">
+        <div class="heading white">
+            <p>Contact Me Any Time</p>
+            <h2>Get in Touch</h2>
+        </div>
+        <div class="content">
+            <div class="contactInfo">
+                <h3>Contact Info</h3>
+                <p>Always open to discussing new roles and giving advice.</p>
+                <div class="contactInfoBx">
+                    <div class="box">
+                        <div class="text">
+                            <h3>Address</h3>
+                            <address>620 North Hancock Street<br>Philadelphia, Pennsylvania<br>PA, 19123</address>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="text">
+                            <h3>Phone Number</h3>
+                            <p>856-723-0652</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="text">
+                            <h3>Email Address</h3>
+                            <p>ThomasJohnLohan@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="formBx">
+                <form action="{% url 'portfolio_app' %}" method="post">
+
+                    {% csrf_token %}
+
+                    <h3>Message Me</h3>
+                    <input type="text" name="message-name" placeholder="Full Name">
+                    <input type="email" name="message-email" placeholder="Email">
+                    <input type="text" name="message-subject" placeholder="Subject"> 
+                    <textarea name="message-content" rows="6" placeholder="Your Message"></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <footer class="copyright">
+        <p>&copy; 2023, ThomasJLohan.com, All Rights </p>
+    </footer>
+</body>
+</html>
+{% endblock content %}

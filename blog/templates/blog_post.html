@@ -1,0 +1,33 @@
+{% extends 'base2.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom's Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+<section class="post">
+        <div class="postBx">
+            <div class="postImage" style="float:center;">
+                <img src="{{ blog_post.blog_image.url }}" style="width: 400px; height: 300px;">
+            </div>
+            <div class="postTitle">
+                <h2>{{ blog_post.blog_title }}</h2>
+            </div>
+            <div class="postContent">
+                <p>{{ blog_post.blog_content|safe }}</p>
+            </div>
+        </div>
+    </section>
+    <div class="btn-main">
+        <div class="blog-btn-1">
+            <h2><a href="{% url 'blog:blog' %}">Back to Blog</a></h2>
+        </div>
+        {% comment %} <div class="blog-btn-2">
+            <h2><a href="{% url 'portfolio_app' %}">Portfolio</a></h2>
+        </div> {% endcomment %}
+    </div>
+</body>
+{% endblock %}
