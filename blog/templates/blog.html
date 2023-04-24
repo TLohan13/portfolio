@@ -13,13 +13,11 @@
     <div class="row">
         {% for blog in blog_posts %}
         <div class="left-column">
-            <div class="card">
                 <a href="{% url 'blog:blog_post' blog.id %}">
                     <h2>{{ blog.blog_title }}</h2>
                     <h5>{{ blog.blog_date }}</h5>
                 <img src="{{ blog.blog_image.url }}">
                 </a>
-            </div>
         </div>
         {% endfor %} 
         <div class="right-column">
