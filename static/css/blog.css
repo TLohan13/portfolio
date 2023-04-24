@@ -6,6 +6,10 @@ body {
     background-color: #f1f1f1;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .header {
     background-color: #000000;
     padding: 30px;
@@ -22,19 +26,21 @@ body {
 
 .left-column {
     float: left;
-    width: 70%;
-    margin-top: 40px;
+    width: 75%;
+    /* width: 70%;
+    margin-top: 40px; */
 }
 
 .right-column {
-    width: 27%;
+    width: 25%;
+    /* width: 27%; */
     float: right;
-    padding-left: 30px;
-    align-items: right;
+    padding-left: 20px;
+    /* align-items: right;
     flex-direction: column;
     position: fixed;
     right: 20px;
-    bottom: 107px;
+    bottom: 107px;  */
 }
 
 .card {
@@ -74,6 +80,15 @@ body {
 .left-column img {
     width: 100%;
     height: 520px;
+}
+
+@media(max-width:800px) {
+
+    .left-column,
+    .right-column {
+        width: 100%;
+        padding: 0px;
+    }
 }
 
 
