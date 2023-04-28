@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+import cloudinary_storage
 
 env = environ.Env()
 environ.Env.read_env()
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'portfolio_app',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -142,7 +145,16 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('DJANGO_EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('DJANGO_EMAIL_HOST_PASSWORD')
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('DJANGO_CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': env('DJANGO_CLOUDINARY_API_SECRET'),
+    'API_SECRET': env('DJANGO_CLOUDINARY_API_KEY'),
+}
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
