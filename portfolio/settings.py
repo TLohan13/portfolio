@@ -31,7 +31,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['thomaslohan.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['thomaslohan.up.railway.app',
+                 'localhost', '127.0.0.1', 'www.thomasjlohan.com']
 CSRF_TRUSTED_ORIGINS = ['https://thomaslohan.up.railway.app']
 
 
