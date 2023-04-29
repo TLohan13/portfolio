@@ -33,7 +33,8 @@ DEBUG = env('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = ['thomaslohan.up.railway.app',
                  'localhost', '127.0.0.1', 'www.thomasjlohan.com', 'thomasjlohan.com']
-CSRF_TRUSTED_ORIGINS = ['https://thomaslohan.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://thomaslohan.up.railway.app',
+                        'https://www.thomasjlohan.com', 'https://thomasjlohan.com']
 
 
 # Application definition
